@@ -10,3 +10,10 @@ app.controller('myCtrl', function($scope, $timeout) {
       $scope.myHeader = "How are you today?";
   }, 2000);
 });
+var app = angular.module("myApp2", []);
+app.controller('times', function($scope, $interval) {
+  $scope.theTime = new Date().toLocaleTimeString();
+  $interval(function () {
+      $scope.theTime = new Date().toLocaleTimeString();
+  }, 1000);
+});
