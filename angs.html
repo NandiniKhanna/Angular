@@ -5,74 +5,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="Angular.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="todoCtrl">
-
 <div class="container">
   <h2>Assessment Tool</h2>
   <p>Choose the correct option to get your final scores.</p>
-
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
     <li><a data-toggle="tab" href="#menu1">Test</a></li>
   </ul>
-
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-      <h2>Enter Assessment</h2>
-
-<form ng-submit="todoAdd()">
-    <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
-    <input type="submit" value="Add New">
-</form>
-
-<br>
-
-<div ng-repeat="x in todoList">
-    <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
-</div>
-
-<p><button ng-click="remove()">Remove marked</button></p>
-<p><button ng-click="save()"> Save marked</button></p>
-    </div>
-    <script>
-var arr= [];
-var i=0;
-var app = angular.module('myApp', []); 
-app.controller('todoCtrl', function($scope) {
-    $scope.todoList = [{todoText:'', done:false}];
-    $scope.todoAdd = function() {
-        $scope.todoList.push({todoText:$scope.todoInput, done:false});
-        $scope.todoInput = "";
-    };
-
-    $scope.remove = function() {
-        var oldList = $scope.todoList;
-        $scope.todoList = [];
-        angular.forEach(oldList, function(x) {
-            if (!x.done) $scope.todoList.push(x);
-        });
-    };
-     $scope.save = function() {
-        var oldList = $scope.todoList;
-        $scope.todoList = [];
-        angular.forEach(oldList, function(x) {
-            if (!x.done) arr[i++] = "false";
-            else arr[i++]="true";
-            $scope.todoList.push(x);
-        });
-    };
-});
-</script>
-    <div id="menu1" class="tab-pane fade">
-      <h3>Menu 1</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
+        <h2>Enter Assessment</h2>
+        <form ng-submit="todoAdd()">
+          <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+          <input type="submit" value="Add New">
+        </form>
+        <br>
+        <div ng-repeat="x in todoList">
+            <input type="checkbox" ng-model="x.done" id="p1">
+            <span ng-bind="x.todoText"></span>
+            <i class="fa fa-check" aria-hidden="true" id="tik" style="visibility:hidden"></i>
+        </div>
+        <p><button ng-click="remove()">Remove marked</button></p>
+        <p><button ng-click="save()"> Save marked</button></p>
+     </div>
+     <div id="menu1" class="tab-pane fade">
+       <h3>Start Assessment</h3>
+       <p>Select one option. All the best!</p>
+       <button > Start </button>
+     </div>
   </div>
 </div>
-
 </body>
 </html>
