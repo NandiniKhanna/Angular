@@ -1,18 +1,28 @@
-var app = angular.module("myApp", []);
-app.directive("w3TestDirective", function() {
-    return {
-        template : "<h1>MESSAGE FROM DIRECTIVE</h1>"
-    };
-});
-app.controller('myCtrl', function($scope, $timeout) {
-  $scope.myHeader = "Hello World!";
-  $timeout(function () {
-      $scope.myHeader = "How are you today?";
-  }, 2000);
-});
-/*app.controller('myCtrl', function($scope, $interval) {
-  $scope.theTime = new Date().toLocaleTimeString();
-  $interval(function () {
-      $scope.theTime = new Date().toLocaleTimeString();
-  }, 1000);
-})*/
+var arr= [];
+var i=0;
+var k=0;
+var app = angular.module('myApp', []);
+app.controller('todoCtrl', function($scope) {
+    $scope.todoList = [{todoText:'', done:false}];
+    $scope.todoAdd = function() {
+        k++;
+        $scope.todoList.push({todoText:$scope.todoInput, done:false});
+        $scope.todoInput = "";
+      };
+      $scope.remove = function() {
+        var oldList = $scope.todoList;
+        $scope.todoList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) $scope.todoList.push(x);
+          });
+        };
+        $scope.save = function() {
+          var oldList = $scope.todoList;
+          $scope.todoList = [];
+          angular.forEach(oldList, function(x) {
+            if (!x.done) arr[i++] = "false";
+            else arr[i++]="true";
+            $scope.todoList.push(x);
+          });
+        };
+      });
