@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    #background  {
+        background: url("http://www.mycity-web.com/wp-content/uploads/2017/05/Office-Design.jpg");
+    }
+    .show {display:block;}
+    .dropbtn {
+     cursor: pointer;
+     }
+     .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 220px;
+    overflow: auto;
+    margin:0px;
+    }
+</style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="Open">
+    <div class="container-fluid" id="background">
+        <div class="row">
+            <div class="col-sm-2" style="background-color:grey;text-align:center">
+                <div class="media-left media-middle">
+                    <img src="http://wallpaperspack.info/wp-content/uploads/Indian-Girl-Profile-Pic-19.jpg" class="media-object" style="width:100px; border-radius:50px; margin:50px 50px 0px 50px">
+                    <p style="text-align:center;color:black"> PAUL RADCLIFFE<br><a href=# style="color:black">Edit Profile</a></p>
+                </div>
+                <hr>
+                <div class="dropdown">
+                <p style="text-align:center;" class="dropbtn"><i class="fa fa-angle-down" style="font-size:30px; bottom:50px"></i> MAIN MENU</p>
+                <div id="myDropdown" class="dropdown-content" style="color:black;background-color:CadetBlue">
+                        <a href="#home" style="color:black;margin:30px">Customer Details</a>
+                        <hr>
+                        <a href="#about" style="color:black">Customer Statement</a>
+                        <hr>
+                        <a href="#contact" style="color:black">MoveMoney</a>
+                        Beneficiaries <hr>
+                        Select Investment <hr>
+                        Investment Detail <hr>
+                </div>
+                </div>
+                <hr>
+                <p> Last logged information </p>
+                <hr>
+                <p>Hyperlinks as applicable </p>
+                <hr>
+                <p> Notifications </p>
+                <hr>
+                <p> About us </p>
+                <hr>
+                <script>
+                       var acc = document.getElementsByClassName("dropbtn");
+                       var i;
+                       for (i = 0; i < acc.length; i++) {
+    						acc[i].onclick = function(){
+        						this.classList.toggle("active");
+        						var panel = this.nextElementSibling;
+        						if (panel.style.display === "block") {
+            						panel.style.display = "none";
+        						} else {
+            						panel.style.display = "block";
+        						}
+    						}
+						}
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
